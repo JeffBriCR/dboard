@@ -1,8 +1,8 @@
 export default {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
-    body: 'Georgia',
-    heading: 'Open Sans',
+    body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+    heading: 'inherit',
     monospace: 'Menlo, monospace',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
@@ -16,12 +16,11 @@ export default {
     heading: 1.125,
   },
   colors: {
-    text: '#404041',
+    text: '#000',
     background: '#fff',
-    primary: '#6c2d8d',
-    secondary: '#30c',
+    primary: '#008080',
+    secondary: '#00bfa5',
     muted: '#f6f6f6',
-    heading: '#6c2d8d',
   },
   styles: {
     root: {
@@ -30,7 +29,7 @@ export default {
       fontWeight: 'body',
     },
     h1: {
-      color: 'heading',
+      color: 'text',
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
