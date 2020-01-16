@@ -14,6 +14,7 @@
 		<img src="https://img.shields.io/badge/-Chat%20on%20Telegram-blue?style=social&logo=telegram" alt="Chat on Telegram">
 	</a>
 </p>
+
 # dBoard
 
 Decentralized executive board (or community forum) 
