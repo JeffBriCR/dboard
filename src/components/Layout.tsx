@@ -21,11 +21,13 @@ export default function Layout({ children }: OneOrMoreChildren) {
           borderBottom: '1px solid teal', // TODO: use color from theme
         }}
       >
-        <Text sx={{
-          color: 'primary',
-          fontWeight: 700,
-        }}>
-        dBoard
+        <Text
+          sx={{
+            color: 'primary',
+            fontWeight: 700,
+          }}
+        >
+          dBoard
         </Text>
       </Flex>
       <Flex
