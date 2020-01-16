@@ -18,6 +18,8 @@
 
 Decentralized executive board (or community forum) 
 
+Live demo https://dboard.netlify.com/
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
