@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import AppProvider from 'components/AppProvider'
-import Home from 'routes/Home'
-import Layout from 'components/Layout'
+import Main from 'routes/Main'
 import { Global } from '@emotion/core'
+import { Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
@@ -15,10 +15,13 @@ function App() {
           },
         }}
       />
+
       <AppProvider>
-        <Layout>
-          <Home />
-        </Layout>
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route path="/actions" component={Main} />
+          <Route path="/discussions" component={Main} />
+        </Switch>
       </AppProvider>
     </div>
   )

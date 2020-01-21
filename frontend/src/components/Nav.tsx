@@ -1,20 +1,23 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { Flex, Grid } from '@theme-ui/components'
+import { Link } from 'react-router-dom'
 
 function Tab({ label }: { label: string }) {
   return (
-    <Flex
-      sx={{
-        alignItems: 'center',
-        justifyContent: 'center',
-        ':hover': {
-          cursor: 'pointer',
-        },
-      }}
-    >
-      {label}
-    </Flex>
+    <Link to={`/${label.toLowerCase()}`}>
+      <Flex
+        sx={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          ':hover': {
+            cursor: 'pointer',
+          },
+        }}
+      >
+        {label}
+      </Flex>
+    </Link>
   )
 }
 
@@ -28,7 +31,7 @@ export default function Nav() {
         width: '100vw',
       }}
     >
-      <Tab label="Discussion" />
+      <Tab label="Discussions" />
       <Tab label="Actions" />
     </Grid>
   )
