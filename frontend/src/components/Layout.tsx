@@ -2,6 +2,7 @@
 import { jsx } from 'theme-ui'
 import { OneOrMoreChildren } from 'types'
 import { Flex, Text } from '@theme-ui/components'
+import LoginNav from './LoginNav'
 
 export default function Layout({ children }: OneOrMoreChildren) {
   return (
@@ -12,6 +13,7 @@ export default function Layout({ children }: OneOrMoreChildren) {
         borderBottom: '1em solid teal',
       }}
     >
+      <LoginNav />
       <Flex
         sx={{
           width: '100%',

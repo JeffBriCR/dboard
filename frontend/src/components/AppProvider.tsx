@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx, ThemeProvider } from 'theme-ui'
+import { TransitProvider } from '@blockmatic/eosio-hooks'
 import theme from 'theme'
 import { BrowserRouter } from 'react-router-dom'
-
+import { transitConfig } from 'config/config'
 // does not currently work with MDX v1
 // import { importMDX } from 'mdx.macro'
 // const Demo = importMDX.sync('./demo.mdx')
@@ -12,8 +13,10 @@ type AppProviderProps = {
 }
 export default function AppProvider({ children }: AppProviderProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>{children}</BrowserRouter>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <TransitProvider config={transitConfig}>{children}</TransitProvider>
+      </ThemeProvider>
+    </BrowserRouter>
   )
 }
