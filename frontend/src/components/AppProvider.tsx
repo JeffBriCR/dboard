@@ -5,6 +5,7 @@ import theme from 'theme'
 import { BrowserRouter } from 'react-router-dom'
 import { transitConfig } from 'config/config'
 import { PostsContextProvider } from 'hooks/usePosts'
+import GraphQLProvider from 'components/GraphQLProvider'
 
 type AppProviderProps = {
   children: JSX.Element
@@ -12,12 +13,14 @@ type AppProviderProps = {
 
 export default function AppProvider({ children }: AppProviderProps) {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <TransitProvider config={transitConfig}>
-          <PostsContextProvider>{children}</PostsContextProvider>
-        </TransitProvider>
-      </ThemeProvider>
-    </BrowserRouter>
+    <GraphQLProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <TransitProvider config={transitConfig}>
+            <PostsContextProvider>{children}</PostsContextProvider>
+          </TransitProvider>
+        </ThemeProvider>
+      </BrowserRouter>
+    </GraphQLProvider>
   )
 }

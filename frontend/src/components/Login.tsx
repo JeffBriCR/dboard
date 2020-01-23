@@ -1,12 +1,30 @@
 /** @jsx jsx */
-import { useCallback } from 'react'
 import { jsx, Flex } from 'theme-ui'
+import { useEffect, useCallback } from 'react'
 import { Button } from '@theme-ui/components'
 import { useTransitState, useTransit } from '@blockmatic/eosio-hooks'
+import get from 'lodash.get'
+import { useMutation } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
+
+const INSERT_ACCOUNT = gql`
+  mutation InsertUser($accountName:String) {
+    insert_users(objects: {account_name: $accountName}) {
+      affected_rows
+    }
+  }
+`;
 
 export default function LoginNav() {
   const { wallet } = useTransitState()
   const { connectScatter, disconnectWallet } = useTransit()
+  const [insertAccount] = useMutation(INSERT_ACCOUNT);
+
+  const account_name = get(wallet,'accountInfo.account_name')
+
+  useEffect(() => {
+    account_name && insertAccount({ variables: { accountName: account_name } })
+  }, [account_name, insertAccount])
 
   const handleConnectScatter = useCallback(async () => {
     try {
@@ -26,6 +44,8 @@ export default function LoginNav() {
           justifyContent: 'flex-end',
         }}
       >
+<pre sx={{color:'green'}}>{account_name}</pre>
+
         {wallet?.state.connected ? (
           <Button onClick={disconnectWallet}>Disconnect Scatter</Button>
         ) : (
