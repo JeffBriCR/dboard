@@ -4,18 +4,19 @@ import { TransitProvider } from '@blockmatic/eosio-hooks'
 import theme from 'theme'
 import { BrowserRouter } from 'react-router-dom'
 import { transitConfig } from 'config/config'
-// does not currently work with MDX v1
-// import { importMDX } from 'mdx.macro'
-// const Demo = importMDX.sync('./demo.mdx')
+import { PostsContextProvider } from 'hooks/usePosts'
 
 type AppProviderProps = {
   children: JSX.Element
 }
+
 export default function AppProvider({ children }: AppProviderProps) {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <TransitProvider config={transitConfig}>{children}</TransitProvider>
+        <TransitProvider config={transitConfig}>
+          <PostsContextProvider>{children}</PostsContextProvider>
+        </TransitProvider>
       </ThemeProvider>
     </BrowserRouter>
   )
