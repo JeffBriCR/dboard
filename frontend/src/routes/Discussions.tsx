@@ -1,17 +1,26 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { Flex } from '@theme-ui/components'
-// import { Link } from 'react-router-dom'
-import usePosts, { Post } from 'hooks/usePosts'
-import { useEffect } from 'react'
-import PostItems from 'components/PostItems'
+// import PostItem from 'components/PostItem'
+import {useSubscription} from '@apollo/react-hooks'
+import gql from 'graphql-tag'
+
+const SUBSCRIPTION = gql`
+  subscription Discussions {
+    discussions {
+      created_at
+      creator
+      description
+      id
+      title
+      updated_at
+    }
+  }
+`;
+
 
 export default function Discutions() {
-  //  const isActions = 'discussions'
-  const { posts, filterPosts } = usePosts()
-  useEffect(() => {
-    filterPosts('discussions')
-  }, [])
+  const { data } = useSubscription(SUBSCRIPTION)
   return (
     <Flex>
       <ul
@@ -22,9 +31,12 @@ export default function Discutions() {
           py: 4,
         }}
       >
-        {posts.map((post: Post) => (
-          <PostItems post={post} key={post.id} />
-        ))}
+        {/* {posts.map(post => (
+          <PostItem post={post} key={post.id} />
+        ))} */}
+        <pre sx={{color:'blue'}}>
+         { JSON.stringify(data,null,2)}
+        </pre>
       </ul>
     </Flex>
   )

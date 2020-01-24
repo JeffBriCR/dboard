@@ -4,8 +4,8 @@ import { TransitProvider } from '@blockmatic/eosio-hooks'
 import theme from 'theme'
 import { BrowserRouter } from 'react-router-dom'
 import { transitConfig } from 'config/config'
-import { PostsContextProvider } from 'hooks/usePosts'
 import GraphQLProvider from 'components/GraphQLProvider'
+import {AccountNameProvider} from 'hooks/useAccountName'
 
 type AppProviderProps = {
   children: JSX.Element
@@ -17,7 +17,9 @@ export default function AppProvider({ children }: AppProviderProps) {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <TransitProvider config={transitConfig}>
-            <PostsContextProvider>{children}</PostsContextProvider>
+            <AccountNameProvider>
+              {children}
+            </AccountNameProvider>
           </TransitProvider>
         </ThemeProvider>
       </BrowserRouter>

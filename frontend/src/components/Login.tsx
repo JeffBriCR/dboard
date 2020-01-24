@@ -2,10 +2,10 @@
 import { jsx, Flex } from 'theme-ui'
 import { useEffect, useCallback } from 'react'
 import { Button } from '@theme-ui/components'
-import { useTransitState, useTransit } from '@blockmatic/eosio-hooks'
-import get from 'lodash.get'
+import { useTransit } from '@blockmatic/eosio-hooks'
 import { useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
+import useAccountName from 'hooks/useAccountName'
 
 const INSERT_ACCOUNT = gql`
   mutation InsertUser($accountName:String) {
@@ -15,15 +15,20 @@ const INSERT_ACCOUNT = gql`
   }
 `;
 
-export default function LoginNav() {
-  const { wallet } = useTransitState()
-  const { connectScatter, disconnectWallet } = useTransit()
-  const [insertAccount] = useMutation(INSERT_ACCOUNT);
+const handleAccountCreationError = () => {}
 
-  const account_name = get(wallet,'accountInfo.account_name')
+export default function LoginNav() {
+  const { connectScatter, disconnectWallet, transitState:{wallet} } = useTransit()
+  const [insertAccount] = useMutation(INSERT_ACCOUNT, {onError: handleAccountCreationError});
+  const account_name = useAccountName()
 
   useEffect(() => {
-    account_name && insertAccount({ variables: { accountName: account_name } })
+
+      account_name && insertAccount({
+        variables: { accountName: account_name }
+      })
+
+
   }, [account_name, insertAccount])
 
   const handleConnectScatter = useCallback(async () => {

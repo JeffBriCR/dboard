@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 // import usePosts, { Post } from 'hooks/usePosts'
 import { useEffect } from 'react'
 
-export default function PostItems({ post }) {
+export default function PostItem({ post }) {
   return (
     <li
       sx={{
