@@ -10,12 +10,12 @@ import { OneOrMoreChildren } from 'types'
 
 // Create an http link:
 const httpLink = new HttpLink({
-  uri: 'http://dboard-backend.herokuapp.com/v1/graphql',
+  uri: 'https://dboard-backend.herokuapp.com/v1/graphql',
 })
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: 'ws://dboard-backend.herokuapp.com/v1/graphql',
+  uri: 'wss://dboard-backend.herokuapp.com/v1/graphql',
   options: {
     reconnect: true,
   },
