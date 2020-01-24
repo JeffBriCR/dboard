@@ -7,7 +7,7 @@ import Nav from 'components/Nav'
 import Discussions from 'routes/Discussions'
 import Actions from 'routes/Actions'
 import gql from 'graphql-tag'
-import {useSubscription} from '@apollo/react-hooks'
+import { useSubscription } from '@apollo/react-hooks'
 import CreateDiscussionForm from 'components/CreateDiscussionForm'
 
 const SUBSCRIPTION = gql`
@@ -16,7 +16,7 @@ const SUBSCRIPTION = gql`
       account_name
     }
   }
-`;
+`
 
 export default function Main() {
   // const location = useLocation()
@@ -31,20 +31,18 @@ export default function Main() {
       >
         <Nav />
 
-        <br/>
-        <CreateDiscussionForm/>
+        <br />
+        <CreateDiscussionForm />
 
-        <br/>
+        <br />
         <h4>Discussions</h4>
-        <Discussions/>
-        <br/>
+        <Discussions />
+        <br />
         <h4>Actions</h4>
-        <Actions/>
-        <br/>
+        <Actions />
+        <br />
         <h4>User</h4>
-        <pre sx={{color:'green', background:'rgba(0,0,0,.8)'}}>
-          {JSON.stringify(data, null,2)}
-        </pre>
+        <pre sx={{ color: 'green', background: 'rgba(0,0,0,.8)' }}>{JSON.stringify(data, null, 2)}</pre>
         {/* {location.pathname === '/' || location.pathname === '/discussions' || '' ? <Discutions /> : <Actions />} */}
       </Flex>
     </Layout>

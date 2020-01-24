@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui'
 import { Flex } from '@theme-ui/components'
 // import PostItem from 'components/PostItem'
-import {useSubscription} from '@apollo/react-hooks'
+import { useSubscription } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 
 const SUBSCRIPTION = gql`
@@ -16,8 +16,7 @@ const SUBSCRIPTION = gql`
       updated_at
     }
   }
-`;
-
+`
 
 export default function Discutions() {
   const { data } = useSubscription(SUBSCRIPTION)
@@ -34,9 +33,7 @@ export default function Discutions() {
         {/* {posts.map(post => (
           <PostItem post={post} key={post.id} />
         ))} */}
-        <pre sx={{color:'blue'}}>
-         { JSON.stringify(data,null,2)}
-        </pre>
+        <pre sx={{ color: 'blue' }}>{JSON.stringify(data, null, 2)}</pre>
       </ul>
     </Flex>
   )

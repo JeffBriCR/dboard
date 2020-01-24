@@ -8,27 +8,29 @@ import gql from 'graphql-tag'
 import useAccountName from 'hooks/useAccountName'
 
 const INSERT_ACCOUNT = gql`
-  mutation InsertUser($accountName:String) {
-    insert_users(objects: {account_name: $accountName}) {
+  mutation InsertUser($accountName: String) {
+    insert_users(objects: { account_name: $accountName }) {
       affected_rows
     }
   }
-`;
+`
 
 const handleAccountCreationError = () => {}
 
 export default function LoginNav() {
-  const { connectScatter, disconnectWallet, transitState:{wallet} } = useTransit()
-  const [insertAccount] = useMutation(INSERT_ACCOUNT, {onError: handleAccountCreationError});
+  const {
+    connectScatter,
+    disconnectWallet,
+    transitState: { wallet },
+  } = useTransit()
+  const [insertAccount] = useMutation(INSERT_ACCOUNT, { onError: handleAccountCreationError })
   const account_name = useAccountName()
 
   useEffect(() => {
-
-      account_name && insertAccount({
-        variables: { accountName: account_name }
+    account_name &&
+      insertAccount({
+        variables: { accountName: account_name },
       })
-
-
   }, [account_name, insertAccount])
 
   const handleConnectScatter = useCallback(async () => {
@@ -49,7 +51,7 @@ export default function LoginNav() {
           justifyContent: 'flex-end',
         }}
       >
-<pre sx={{color:'green'}}>{account_name}</pre>
+        <pre sx={{ color: 'green' }}>{account_name}</pre>
 
         {wallet?.state.connected ? (
           <Button onClick={disconnectWallet}>Disconnect Scatter</Button>
