@@ -21,6 +21,20 @@ export default {
     primary: '#008080',
     secondary: '#00bfa5',
     muted: '#f6f6f6',
+    error: '#ff0070',
+    success: '#22feb9',
+  },
+  text: {
+    error: {
+      color: 'error',
+    },
+    success: {
+      color: 'success',
+    },
+    detail: {
+      color: 'secondary',
+      fontSize: '0.8em',
+    },
   },
   styles: {
     root: {

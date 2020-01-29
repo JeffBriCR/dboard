@@ -4,11 +4,13 @@ import { Flex } from '@theme-ui/components'
 // import { useLocation } from 'react-router-dom'
 import Layout from 'components/Layout'
 import Nav from 'components/Nav'
-import Discussions from 'routes/Discussions'
-import Actions from 'routes/Actions'
+import Proposals from 'routes/Proposals'
+import Voting from 'routes/Voting'
+import ApprovedRejected from 'routes/ApprovedRejected'
+
 import gql from 'graphql-tag'
 import { useSubscription } from '@apollo/react-hooks'
-import CreateDiscussionForm from 'components/CreateDiscussionForm'
+import CreateActionForm from 'components/CreateActionForm'
 
 const SUBSCRIPTION = gql`
   subscription MyQuery {
@@ -32,14 +34,16 @@ export default function Main() {
         <Nav />
 
         <br />
-        <CreateDiscussionForm />
-
+        <CreateActionForm />
         <br />
-        <h4>Discussions</h4>
-        <Discussions />
+        <h4>Proposals</h4>
+        <Proposals />
         <br />
-        <h4>Actions</h4>
-        <Actions />
+        <h4>ApprovedRejected</h4>
+        <ApprovedRejected />
+        <br />
+        <h4>Voting</h4>
+        <Voting />
         <br />
         <h4>User</h4>
         <pre sx={{ color: 'green', background: 'rgba(0,0,0,.8)' }}>{JSON.stringify(data, null, 2)}</pre>
