@@ -88,7 +88,7 @@ export default {
       color: 'success',
     },
     detail: {
-      color: 'secondary',
+      color: 'accent',
       fontSize: '0.8em',
     },
   },

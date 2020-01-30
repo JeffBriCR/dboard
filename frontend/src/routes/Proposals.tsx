@@ -5,7 +5,7 @@ import { Flex } from '@theme-ui/components'
 import { useSubscription } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import Layout from 'components/Layout'
-import Action from 'components/Action'
+import ProposalItem from 'components/ProposalItem'
 
 const SUBSCRIPTION = gql`
   subscription Proposals($dateStarts: date) {
@@ -36,7 +36,7 @@ export default function Proposals() {
         }}
       >
         {data?.actions.map((action: any) => (
-          <Action action={action} key={action.id} />
+          <ProposalItem action={action} key={action.id} />
         ))}
       </Flex>
     </Layout>
