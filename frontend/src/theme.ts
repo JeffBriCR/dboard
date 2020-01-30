@@ -1,4 +1,33 @@
 export default {
+  badges: {
+    primary: {
+      color: 'background',
+      bg: 'header',
+      p: 2,
+      fontFamily: 'body',
+    },
+    outline: {
+      color: 'accent',
+      py: 2,
+      px: 3,
+      bg: 'transparent',
+      fontFamily: 'body',
+      fontWeight: 'semi',
+      boxShadow: 'inset 0 0 0 1px',
+    },
+  },
+  heading: {
+    primary: {
+      fontFamily: 'heading',
+      fontWeight: 'body',
+      lineHeight: 'heading',
+    },
+    secundary: {
+      fontFamily: 'heading',
+      fontWeight: 'light',
+      lineHeight: 'heading',
+    },
+  },
   buttons: {
     primary: {
       color: 'background',
@@ -31,8 +60,9 @@ export default {
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {
+    light: 200,
+    semi: 300,
     body: 400,
-    heading: 700,
     bold: 700,
   },
   lineHeights: {
@@ -79,14 +109,14 @@ export default {
       color: 'text',
       fontFamily: 'heading',
       lineHeight: 'heading',
-      fontWeight: 'heading',
+      fontWeight: 'body',
       fontSize: 4,
     },
     h3: {
-      color: 'text',
+      color: 'accent',
       fontFamily: 'heading',
       lineHeight: 'heading',
-      fontWeight: 'heading',
+      fontWeight: 'light',
       fontSize: 3,
     },
     h4: {

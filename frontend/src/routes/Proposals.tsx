@@ -4,6 +4,8 @@ import { Flex } from '@theme-ui/components'
 // import PostItem from 'components/PostItem'
 import { useSubscription } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
+import Layout from 'components/Layout'
+import Action from 'components/Action'
 
 const SUBSCRIPTION = gql`
   subscription Proposals($dateStarts: date) {
@@ -17,27 +19,26 @@ const SUBSCRIPTION = gql`
       state
       voting_ends
       voting_starts
+      budget
+      kpi
     }
   }
 `
 
 export default function Proposals() {
   const { data } = useSubscription(SUBSCRIPTION, { variables: { dateStarts: '2020-01-29' } })
+
   return (
-    <Flex>
-      <ul
+    <Layout>
+      <Flex
         sx={{
-          listStyle: 'none',
-          m: 0,
-          px: 3,
-          py: 4,
+          flexDirection: 'column',
         }}
       >
-        {/* {posts.map(post => (
-          <PostItem post={post} key={post.id} />
-        ))} */}
-        <pre sx={{ color: 'purple' }}>{JSON.stringify(data, null, 2)}</pre>
-      </ul>
-    </Flex>
+        {data?.actions.map((action: any) => (
+          <Action action={action} key={action.id} />
+        ))}
+      </Flex>
+    </Layout>
   )
 }

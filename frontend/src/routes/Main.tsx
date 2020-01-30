@@ -3,7 +3,6 @@ import { jsx } from 'theme-ui'
 import { Flex } from '@theme-ui/components'
 // import { useLocation } from 'react-router-dom'
 import Layout from 'components/Layout'
-import Proposals from 'routes/Proposals'
 import Voting from 'routes/Voting'
 import ApprovedRejected from 'routes/ApprovedRejected'
 
@@ -33,8 +32,6 @@ export default function Main() {
         <br />
         <CreateActionForm />
         <br />
-        <h4>Proposals</h4>
-        <Proposals />
         <br />
         <h4>ApprovedRejected</h4>
         <ApprovedRejected />
