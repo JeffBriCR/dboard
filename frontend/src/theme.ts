@@ -51,6 +51,12 @@ export default {
       fontWeight: 'light',
       lineHeight: 'heading',
     },
+    details: {
+      fontFamily: 'heading',
+      fontWeight: 'light',
+      lineHeight: 'heading',
+      fontSize: 0,
+    },
   },
   buttons: {
     primary: {

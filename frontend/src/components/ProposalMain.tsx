@@ -4,7 +4,6 @@ import { Flex } from '@theme-ui/components'
 // import PostItem from 'components/PostItem'
 import { useSubscription } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
-import Layout from 'components/Layout'
 import ProposalItem from 'components/ProposalItem'
 import CreateActionForm from 'components/CreateActionForm'
 
@@ -26,21 +25,19 @@ const SUBSCRIPTION = gql`
   }
 `
 
-export default function Proposals() {
+export default function ProposalsMain() {
   const { data } = useSubscription(SUBSCRIPTION, { variables: { dateStarts: '2020-01-29' } })
 
   return (
-    <Layout>
-      <Flex
-        sx={{
-          flexDirection: 'column',
-        }}
-      >
-        <CreateActionForm />
-        {data?.actions.map((action: any) => (
-          <ProposalItem action={action} key={action.id} />
-        ))}
-      </Flex>
-    </Layout>
+    <Flex
+      sx={{
+        flexDirection: 'column',
+      }}
+    >
+      <CreateActionForm />
+      {data?.actions.map((action: any) => (
+        <ProposalItem action={action} key={action.id} />
+      ))}
+    </Flex>
   )
 }
