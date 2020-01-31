@@ -6,6 +6,24 @@ export default {
       p: 2,
       fontFamily: 'body',
     },
+    success: {
+      color: 'accent',
+      bg: 'success',
+      p: 2,
+      fontFamily: 'body',
+      fontWeight: 'semi',
+      py: 2,
+      px: 3,
+    },
+    fail: {
+      color: 'background',
+      bg: 'error',
+      p: 2,
+      fontFamily: 'body',
+      fontWeight: 'semi',
+      py: 2,
+      px: 3,
+    },
     outline: {
       color: 'accent',
       py: 2,
@@ -17,6 +35,12 @@ export default {
     },
   },
   heading: {
+    title: {
+      fontFamily: 'heading',
+      fontWeight: 'bold',
+      lineHeight: 'heading',
+      margin: '1em 2em',
+    },
     primary: {
       fontFamily: 'heading',
       fontWeight: 'body',
