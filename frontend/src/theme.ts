@@ -1,8 +1,32 @@
 export default {
+  buttons: {
+    primary: {
+      color: 'background',
+      bg: 'primary',
+      '&:hover': {
+        bg: 'text',
+      },
+    },
+    secondary: {
+      fontSize: 3,
+      fontFamily: 'body',
+      fontWeight: 'heading',
+      color: 'background',
+      bg: 'header',
+      border: '1px solid white',
+      borderRadius: '7px',
+      '&:hover': {
+        bg: 'accent',
+      },
+    },
+  },
+  sizes: {
+    container: '100%',
+  },
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
-    body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'inherit',
+    body: 'Gothic A1',
+    heading: 'Poppins',
     monospace: 'Menlo, monospace',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
@@ -16,6 +40,8 @@ export default {
     heading: 1.125,
   },
   colors: {
+    header: '#000',
+    accent: '#333333',
     text: '#000',
     background: '#fff',
     primary: '#008080',

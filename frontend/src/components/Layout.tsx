@@ -1,37 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui'
 import { OneOrMoreChildren } from 'types'
-import { Flex, Text } from '@theme-ui/components'
-import Login from './Login'
+import { Flex } from '@theme-ui/components'
+import Header from 'components/Header'
 
 export default function Layout({ children }: OneOrMoreChildren) {
   return (
-    <Flex
-      sx={{
-        flexDirection: 'column',
-        minHeight: '100vh',
-        borderBottom: '1em solid teal',
-      }}
-    >
-      <Login />
-      <Flex
-        sx={{
-          width: '100%',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '3em',
-          borderBottom: '1px solid teal', // TODO: use color from theme
-        }}
-      >
-        <Text
-          sx={{
-            color: 'primary',
-            fontWeight: 700,
-          }}
-        >
-          dBoard
-        </Text>
-      </Flex>
+    <div>
+      <Header />
       <Flex
         sx={{
           width: '100%',
@@ -40,6 +16,6 @@ export default function Layout({ children }: OneOrMoreChildren) {
       >
         {children}
       </Flex>
-    </Flex>
+    </div>
   )
 }

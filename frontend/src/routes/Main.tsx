@@ -3,7 +3,6 @@ import { jsx } from 'theme-ui'
 import { Flex } from '@theme-ui/components'
 // import { useLocation } from 'react-router-dom'
 import Layout from 'components/Layout'
-import Nav from 'components/Nav'
 import Proposals from 'routes/Proposals'
 import Voting from 'routes/Voting'
 import ApprovedRejected from 'routes/ApprovedRejected'
@@ -31,8 +30,6 @@ export default function Main() {
           flexDirection: 'column',
         }}
       >
-        <Nav />
-
         <br />
         <CreateActionForm />
         <br />
