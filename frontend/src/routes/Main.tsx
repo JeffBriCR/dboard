@@ -28,6 +28,7 @@ export default function Main() {
         }}
       >
         <ProposalsMain />
+
         <h4>User</h4>
         <pre sx={{ color: 'green', background: 'rgba(0,0,0,.8)' }}>{JSON.stringify(data, null, 2)}</pre>
         {/* {location.pathname === '/' || location.pathname === '/discussions' || '' ? <Discutions /> : <Actions />} */}
